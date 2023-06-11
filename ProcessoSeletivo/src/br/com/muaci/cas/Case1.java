@@ -1,5 +1,6 @@
 package br.com.muaci.cas;
 
+import java.util.Iterator;
 import java.util.Locale;
 import java.util.Scanner;
 import java.util.concurrent.ThreadLocalRandom;
@@ -16,7 +17,17 @@ public class Case1 {
 		 * analisarCandidato(1900.00); analisarCandidato(2200.00);
 		 * analisarCandidato(2000.00);
 		 */
-         selecaoCandidatos();
+        // selecaoCandidatos();
+		imprimirSelecionados();
+	}
+	static void imprimirSelecionados() {
+		String [] candidatos = {"Felipe", "Marcia", "Julia", "Paulo", "Augusto"};
+		System.out.println("Imprimindo a lista de candidatos infomando o indece do elemento");
+	    for(int indice=0; indice < candidatos.length;indice++) {
+	    	System.out.println("O candidato de n° " + (indice+1)+ " é "+ candidatos[indice] );
+	    	
+	    }
+	    System.out.println("");
 	}
 
 	static void selecaoCandidatos() {
