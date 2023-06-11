@@ -1,24 +1,45 @@
 package br.com.muaci.cas;
 
 import java.util.Iterator;
-import java.util.Locale;
-import java.util.Scanner;
+import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class Case1 {
 
 	public static void main(String[] args) {
 
-		// Scanner sc = new Scanner(System.in);
-		// Locale.setDefault(new Locale("us"));
-		// System.out.println("Processo seletivo ");
-
-		/*
-		 * analisarCandidato(1900.00); analisarCandidato(2200.00);
-		 * analisarCandidato(2000.00);
-		 */
+		String [] canditatos = {"Felipe", "Marcia", "Julia", "Paulo", "Augusto"};
+		for(String candidato: canditatos) {
+			entrandoEmContato(candidato);
+		}
         // selecaoCandidatos();
-		imprimirSelecionados();
+		//imprimirSelecionados();
+	}
+	static void entrandoEmContato(String candidato) {
+		int tentativasRealizadas = 1;
+		boolean continuartentando = true;
+		boolean atendeu = false;
+		do {
+			atendeu = atender();
+			continuartentando = !atendeu;
+			if (continuartentando) {
+                 tentativasRealizadas++;				
+			}else {
+				System.out.println("CONTATO REALIZADO COM SUCESSO ");
+			}
+			
+			
+		} while (continuartentando && tentativasRealizadas <3);
+		 if (atendeu) {
+			System.out.println("Conseguimos Contato com " + candidato + " na " + tentativasRealizadas + " Tentativa");
+		}else {
+			System.out.println("Não Conseguimos contato com "+ candidato+", numero Maximo de tentativa " + tentativasRealizadas );
+		}
+		
+	}
+	 // método atender
+	static boolean atender() {
+		return new Random().nextInt(3)==1;
 	}
 	static void imprimirSelecionados() {
 		String [] candidatos = {"Felipe", "Marcia", "Julia", "Paulo", "Augusto"};
